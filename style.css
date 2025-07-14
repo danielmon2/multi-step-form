@@ -1,0 +1,568 @@
+/* #region Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu Regular', Arial, sans-serif;
+    font-weight: normal;
+}
+
+html {
+    font-size: 100%;
+}
+/* #endregion */
+
+/* #region Color variables */
+:root {
+    --Blue950: #02295a;
+    --Purple600: #473dff;
+    --Blue300: #adbeff;
+    --Blue200: #bfe2fd;
+    --Red500: #ed3548;
+
+    --Grey500: #9699ab;
+    --Purple200: #d6d9e6;
+    --Blue100: #f0f5ff;
+    --Blue50: #fafbff;
+}
+/* #endregion */
+
+/* #region Bare elements */
+body {
+    background-color: var(--Blue100);
+    height: 100vh;
+    width: 100vw;
+}
+
+button {
+    cursor: pointer;
+}
+
+h2, h4 {
+    font-family: 'Ubuntu Bold', Arial, sans-serif;
+    color: var(--Blue950);
+}
+/* #endregion */
+
+/* #region Sidebar */
+#sidebar {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    background-image: url("assets/images/bg-sidebar-mobile.svg");
+    background-size: cover;
+    height: 200px;
+    width: 100%;
+}
+
+    .sidebar-tab {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 30px 10px;
+    }
+
+        .sidebar-text {
+            display: none;
+        }
+
+            .sidebar-text p, .sidebar-text h4{
+                margin: 0;
+                padding: 0;
+            }
+
+        .circle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 35px;
+            height: 35px;
+            border: 2px solid var(--Blue200);
+            border-radius: 50%;
+        }
+
+            .circle p {
+                color: var(--Blue200);
+                font-family: 'Ubuntu Bold', Arial, sans-serif;
+                font-size: 14px;
+            }
+/* #endregion */
+
+/* #region Main content */
+#main-container {
+    width: 100%;
+    /* height: calc(100% - 105px - 70px); */
+    /* height: 175px; */
+}
+
+#main-container > div:not(#sidebar) {
+    width: 100%;
+    height: 100%;
+}
+
+.form-container {
+    position: absolute;
+    top: 95px;
+    left: 50%;
+    translate: -50% 0;
+    z-index: 1;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 9px;
+    background-color: white;
+    margin-bottom: 70px;
+    padding: 20px;
+    box-shadow: 0 35px 59px var(--Purple200);
+}
+    .form-container h2 { margin-top: 10px;}
+    .form-container p {
+        margin: 15px 0 20px 0;
+        color: var(--Grey500);
+    }
+
+    .form-container label {
+        font-size: .8rem;
+        color: var(--Blue950);
+        font-family: 'Ubuntu Regular', Arial, sans-serif;
+        margin: 2px 0;
+    }
+/* #endregion */
+
+/* #region Form 1 */
+#form-1 input {
+    margin-bottom: 15px;
+    width: 100%;
+    /* max-width: 400px; */
+    height: 40px;
+    border: 1px solid var(--Purple200);
+    border-radius: 3px;
+    padding: 8px 15px;
+    color: var(--Grey500);
+    font-family: 'Ubuntu Medium', Arial, sans-serif;
+    font-size: 1rem;
+    display: block;
+}
+
+#form-1 label {
+    display: block;
+}
+/* #endregion */
+
+/* #region Form 2 */
+.plan-choice-btn, #period-btn {
+    display: block;
+    border-radius: 9px;
+    width: 100%;
+    padding: 10px 15px;
+    margin: 10px 0;
+}
+
+.plan-choice-btn {
+    background-color: white;
+    border: 1px solid var(--Purple200);
+    background-repeat: no-repeat;
+    background-position: 6% center;
+}
+    .plan-choice-btn:hover {
+        background-color: var(--Blue100);
+    }
+
+    .plan-choice-btn h4, .plan-choice-btn p {
+        margin: 5px;
+        text-align: left;
+        margin-left: 21%;
+    }
+
+    .plan-choice-btn h4 {
+        font-size: 1rem;
+        font-family: 'Ubuntu Medium', Arial, sans-serif;
+    }
+
+    .plan-choice-btn .free-months {
+        color: var(--Blue950);
+        font-size: .8rem;
+    }
+
+    .plan-choice-btn.focus {
+        border: 2px solid var(--Purple600);
+    }
+
+    #arcade-plan {
+        background-image: url(assets/images/icon-arcade.svg);
+    }
+
+    #advanced-plan {
+        background-image: url(assets/images/icon-advanced.svg);
+    }
+
+    #pro-plan {
+        background-image: url(assets/images/icon-pro.svg);
+    }
+
+#period-btn {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--Blue50);
+}
+    #period-btn:hover {
+        background-color: var(--Blue100);
+    }
+
+    #period-btn img {
+        width: 35px;
+        margin: 0 20px;
+    }
+
+    #period-btn span {
+        font-family: 'Ubuntu Medium', Arial, sans-serif;
+    }
+
+    .period-text-inactive {
+        color: var(--Grey500)
+    }
+
+    .period-text-active {
+        color: var(--Blue950)
+    }
+/* #endregion */
+
+/* #region Form 3 */
+#form-3 > p {
+    margin-bottom: 20px;
+}
+
+#form-3 .add-on-btn {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--Purple200);
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    margin: 15px 0;
+    padding: 10px 0;
+}
+    #form-3 .add-on-btn:hover {
+        background-color: var(--Blue100);
+    }
+    .checkbox {
+        width: 20px;
+        height: 20px;
+        margin: 15px;
+        border-radius: 4px;
+    }
+
+    .filled {
+        border: none;
+        background: var(--Purple600) url(assets/images/icon-checkmark.svg) 50% 50%/12px no-repeat;
+    }
+
+    .empty { border: 2px solid var(--Purple200); }
+
+    #form-3 .add-on-btn.focus {
+        outline: 2px solid var(--Purple600);
+    }
+
+    .add-on-btn .add-on-text {
+        text-align: left;
+        margin: 0;
+    }
+        .add-on-btn .add-on-text * { margin: 5px 0; }
+        .add-on-btn  .add-on-text h4 { font-family: 'Ubuntu Medium', Arial, sans-serif; }
+
+    .add-on-btn .add-on-price {
+        margin: 0 15px 0 auto;
+    }
+
+    .add-on-btn .add-on-price, .add-on-btn .monthly, .add-on-btn .monthly-price {
+        font-size: 0.8rem;
+        font-family: 'Ubuntu Medium', Arial, sans-serif;
+        color: var(--Purple600);
+    }
+
+/* #endregion */
+
+/* #region Form 4 */
+#receipt {
+    background-color: var(--Blue100);
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+    #subscription {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #subscription p {
+        font-family: 'Ubuntu Bold', Arial, sans-serif;
+        color: var(--Blue950);
+    }
+
+    #receipt p, #total p {
+        /* font-size: 0.9rem; */
+        margin: 0;
+    }
+
+    #subscription p span {
+        color: var(--Blue950);
+        font-family: 'Ubuntu Medium', Arial, sans-serif;
+    }
+
+    #subscription button {
+        border: none;
+        background-color: inherit;
+        color: var(--Grey500);
+        text-decoration: underline;
+        font-size: 0.9rem;
+    }
+
+    .break-line {
+        height: 1px;
+        width: 100%;
+        background-color: var(--Purple200);
+        margin: 15px 0;
+    }
+
+    .service-item {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
+        font-size: 1rem;
+    }
+
+    .service-item .service-price {
+        color: var(--Blue950);
+        /* font-family: 'Ubuntu Medium', Arial, sans-serif; */
+    }
+
+#total {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin-top: 20px;
+}
+    #total-price {
+        font-family: 'Ubuntu Bold', Arial, sans-serif;
+        font-size: 1.1rem;
+        color: var(--Purple600);
+    }
+/* #endregion */
+
+/* #region Form 5 */
+#form-5 {
+    /* padding-left: 30px; */
+    margin: 30px auto 0 auto;
+}
+#form-5 img {
+    display: block;
+    margin: 0 auto 30px auto;
+    /* margin-top: 40px; */
+    width: 70px;
+}
+
+#form-5 h2, #form-5 p {
+    /* margin: 0 auto; */
+    text-align: center;
+}
+
+#form-5 p {
+    margin-bottom: 50px;
+    font-size: .95rem;
+}
+
+#home-btn {
+    display: block;
+    border: none;
+    background-color: white;
+    color: var(--Grey500);
+    text-decoration: underline;
+    margin: 0 auto;
+}
+/* #endregion */
+
+/* #region Navigation buttons */
+.nav-btn-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+    position: fixed;
+    /* translate: -50% 0; */
+    bottom: 0;
+    /* top: calc( 100vh - 70px ); */
+    margin-top: auto;
+    width: 100%;
+    height: 70px;
+    background-color: white;
+}
+    .next-btn, .back-btn {
+        margin: 20px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        font-family: 'Ubuntu Medium', Arial, sans-serif;
+        cursor: pointer;
+    }
+
+    .back-btn {
+        background-color: white;
+        color: var(--Grey500);
+        padding: 10px 10px;
+    }
+
+    .next-btn {
+        background-color: var(--Blue950);
+        color: var(--Blue100);
+    }
+        .next-btn:hover, .back-btn:hover{
+            filter: brightness(0.85);
+        }
+
+        .next-btn:active, .back-btn:active{
+            scale: 0.9;
+        }
+/* #endregion */
+
+/* #region Responsive styles */
+@media (min-width: 900px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    /* #region Main container */
+    #main-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: start;
+        width: 80%;
+        height: 90%;
+        max-width: 900px;
+        max-height: 550px;
+        /* border: 1px solid black; */
+        border-radius: 10px;
+        padding: 10px;
+        background-color: white;
+        box-shadow: 0 35px 59px var(--Purple200);
+    }
+        #main-container > div:not(#sidebar) {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            width: 70%;
+            padding: 0 50px;
+        }
+
+        #main-container > div:not(#sidebar):has(#form-5:not(.hidden)) {
+            justify-content: center;
+        }
+    /* #endregion */
+
+    /* #region Sidebar */
+    #sidebar {
+        width: 30%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: start;
+        background-image: url(assets/images/bg-sidebar-desktop.svg);
+        padding: 20px;
+        /* padding-right: 50px; */
+        border-radius: 10px;
+    }
+        .circle {
+            width: 30px;
+            height: 30px;
+            border: 1px solid var(--Blue200);
+        }
+            .circle p { font-size: 0.8rem; }
+
+        .sidebar-tab {
+            margin: 10px;
+        }
+
+        .sidebar-text {
+            display: block;
+            color: var(--Purple200);
+            margin-left: 15px;
+            font-size: 0.8rem;
+        }
+            .sidebar-text h4 { color: var(--Blue100); }
+            .sidebar-text p { font-size: 0.7rem; margin-bottom: 2px; }
+    /* #endregion */
+
+    /* #region Form container */
+    .form-container {
+        position: static;
+        translate: 0;
+        margin: 0;
+        box-shadow: none;
+        width: 100%;
+        /* height: 85%; */
+    }
+    /* #endregion */
+
+    /* #region Form 2 */
+    #form-2 > div {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+    .plan-choice-btn {
+        height: 150px;
+        flex-basis: 31%;
+        /* margin: 0 5px; */
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        background-position: 15% 15%;
+    }
+
+    .plan-choice-btn:has(p.free-months:not(.hidden)){
+        height: 170px;
+    }
+        .plan-choice-btn h4, .plan-choice-btn p {
+            margin: 0;
+        }
+    /* #endregion */
+
+    #form-5 {
+        width: 85%;
+    }
+
+    .nav-btn-div {
+        position: static;
+        height: 15%;
+        /* margin-top: auto; */
+    }
+}
+/* #endregion */
+
+/* #region Fonts */
+.border {
+    border: 1px solid blue;
+}
+
+.hidden {
+    display: none;
+}
+
+@font-face {
+    font-family: 'Ubuntu Regular';
+    src: url('assets/fonts/Ubuntu-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Ubuntu Medium';
+    src: url('assets/fonts/Ubuntu-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'Ubuntu Bold';
+    src: url('assets/fonts/Ubuntu-Bold.ttf');
+}
+/* #endregion */

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <script src="https://kit.fontawesome.com/a2d855fe6e.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+
+  <title>Frontend Mentor | Multi-step form</title>
+</head>
+ <body>
+  <div id="main-container">
+    <div id="sidebar">
+      <div class="sidebar-tab">
+        <div class="circle">
+          <p>1</p>
+        </div>
+        <div class="sidebar-text">
+          <p>STEP 1</p>
+          <h4>YOUR INFO</h4>
+        </div>
+      </div>
+
+      <div class="sidebar-tab">
+        <div class="circle">
+          <p>2</p>
+        </div>
+        <div class="sidebar-text">
+          <p>STEP 2</p>
+          <h4>SELECT PLAN</h4>
+        </div>
+      </div>
+
+      <div class="sidebar-tab">
+        <div class="circle">
+          <p>3</p>
+        </div>
+        <div class="sidebar-text">
+          <p>STEP 3</p>
+          <h4>ADD-ONS</h4>
+        </div>
+      </div>
+
+      <div class="sidebar-tab">
+        <div class="circle">
+          <p>4</p>
+        </div>
+        <div class="sidebar-text">
+          <p>STEP 4</p>
+          <h4>SUMMARY</h4>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div id="form-1" class="hidden form-container">
+        <h2>Personal info</h2>
+        <p>Please provide your name, email address, and phone number.</p>
+
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="e.g. Stephen King">
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="e.g. stephenking@lorem.com">
+
+        <label for="number">Phone Number</label>
+        <input type="tel" id="number" placeholder="e.g. +1 234 567 890">
+      </div>
+
+      <div id="form-2" class="hidden form-container">
+        <h2>Select your plan</h2>
+        <p>You have the option of monthly or yearly billing.</p>
+
+        <div>
+          <button id="arcade-plan" class="plan-choice-btn focus">
+            <h4>Arcade</h4>
+            <p class="plan-price">$9/mo</p>
+            <p class="free-months hidden">2 months free</p>
+          </button>
+
+          <button id="advanced-plan" class="plan-choice-btn">
+            <h4>Advanced</h4>
+            <p class="plan-price">$12/mo</p>
+            <p class="free-months hidden">2 months free</p>
+          </button>
+
+          <button id="pro-plan" class="plan-choice-btn">
+            <h4>Pro</h4>
+            <p class="plan-price">$15/mo</p>
+            <p class="free-months hidden">2 months free</p>
+          </button>
+        </div>
+
+        <button id="period-btn">
+          <span class="period-text-active">Monthly</span>
+          <img class="toggle-left" src="assets/png/toggle_left.png" alt="Toggle pointing left">
+          <span class="period-text-inactive">Yearly</span>
+        </button>
+      </div>
+
+      <div id="form-3" class="hidden form-container">
+        <h2>Pick add-ons</h2>
+        <p>Add-ons help enhance your gaming experience.</p>
+
+        <button class="add-on-btn">
+          <div class="checkbox empty"></div>
+          <div class="add-on-text">
+            <h4>Online service</h4>
+            <p>Access to multiplayer games</p>
+          </div>
+          <p class="add-on-price">+$1/mo</p>
+        </button>
+
+        <button class="add-on-btn">
+          <div class="checkbox empty"></div>
+          <div class="add-on-text">
+            <h4>Larger storage</h4>
+            <p>Extra 1TB of cloud save</p>
+          </div>
+          <p class="add-on-price">+$2/mo</p>
+        </button>
+
+        <button class="add-on-btn">
+          <div class="checkbox empty"></div>
+          <div class="add-on-text">
+            <h4>Customizable Profile</h4>
+            <p>Custom theme on your profile</p>
+          </div>
+          <p class="add-on-price">+$2/mo</p>
+        </button>
+
+      </div>
+
+      <div id="form-4" class="hidden form-container">
+        <h2>Finishing up</h2>
+        <p>Double-check everything looks OK before confirming.</p>
+        <div id="receipt">
+          <div id="subscription">
+            <div>
+              <p>
+                <span id="subscription-type">Arcade</span>
+                <span id="subscription-duration">(Monthly)</span>
+              </p>
+              <button id="change-plan-btn">Change</button>
+            </div>
+            <p>$9/mo</p>
+          </div>
+          <div class="break-line hidden"></div>
+        </div>
+        <div id="total">
+          <p>Total (per <span>month</span>)</p>
+          <h4 id="total-price">+9$/mo</h4>
+        </div>
+      </div>
+
+      <div id="form-5" class="hidden form-container">
+        <img src="assets/images/icon-thank-you.svg" alt="White checkmark on a pink circle">
+        <h2>Thank you!</h2>
+        <p>
+          Thanks for confirming your subscription! We hope you have fun
+          using our platform. If you ever need support, please feel free
+          to email us at support@loremgaming.com.
+          <button id="home-btn">Home</button>
+        </p>
+
+      </div>
+
+      <div class="nav-btn-div">
+        <button class="back-btn">Go back</button>
+        <button class="next-btn">Next step</button>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="attribution">
+    <a href="https://www.flaticon.com/free-icons/turn-on" title="turn on icons">Turn on icons created by heisenberg_jr - Flaticon</a>
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+  <script src="script.js"></script>
+</body>
+</html>
