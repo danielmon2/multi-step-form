@@ -193,26 +193,31 @@ function printTotal() {
     document.querySelector('#total span').textContent = timePeriod.current === 0 ? 'month' : 'year';
     document.querySelector('#total h4').textContent = `+${total}$/mo`;
 }
+
 // Year/month button
-function toggleButton() {
-    const toggle = document.querySelector('#period-btn img');
-    const btnSpans = document.querySelectorAll('#period-btn span');
-    if (toggle.classList.contains('toggle-left')) {
-        toggle.setAttribute('src', 'assets/png/toggle_right.png');
-        toggle.setAttribute('alt', 'Toggle pointing right');
+function toggleButton(direction) {
+    const toggleArr = document.querySelectorAll('#period-btn img');
+    const btnSpanArr = document.querySelectorAll('#period-btn span');
+    if (direction === 0) {
+        toggleArr[1].classList.add('hidden');
+        toggleArr[0].classList.remove('hidden');
+
+        btnSpanArr[0].classList.remove('period-text-inactive');
+        btnSpanArr[0].classList.add('period-text-active');
+
+        btnSpanArr[1].classList.add('period-text-inactive');
+        btnSpanArr[1].classList.remove('period-text-active');
     }
     else {
-        toggle.setAttribute('src', 'assets/png/toggle_left.png');
-        toggle.setAttribute('alt', 'Toggle pointing left');
+        toggleArr[0].classList.add('hidden');
+        toggleArr[1].classList.remove('hidden');
+
+        btnSpanArr[1].classList.remove('period-text-inactive');
+        btnSpanArr[1].classList.add('period-text-active');
+
+        btnSpanArr[0].classList.add('period-text-inactive');
+        btnSpanArr[0].classList.remove('period-text-active');
     }
-
-    toggle.classList.toggle('toggle-left');
-    toggle.classList.toggle('toggle-right');
-
-    btnSpans.forEach(el => {
-        el.classList.toggle('period-text-inactive');
-        el.classList.toggle('period-text-active');
-    })
 }
 
 function yearToMonth() {
@@ -306,7 +311,7 @@ choiceBtnArr.forEach((el, index) => {
 periodBtn.addEventListener('click', () => {
     timePeriod.clicks++;
     timePeriod.current = timePeriod.clicks % 2;
-    toggleButton();
+    toggleButton(timePeriod.current);
     yearToMonth();
 })
 

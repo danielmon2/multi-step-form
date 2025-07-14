@@ -59,10 +59,10 @@
         <p>Please provide your name, email address, and phone number.</p>
 
         <label for="name">Name</label>
-        <input type="text" id="name" placeholder="e.g. Stephen King">
+        <input type="text" id="name" placeholder="e.g. Stephen King" required>
 
         <label for="email">Email Address</label>
-        <input type="email" id="email" placeholder="e.g. stephenking@lorem.com">
+        <input type="email" id="email" placeholder="e.g. stephenking@lorem.com" required>
 
         <label for="number">Phone Number</label>
         <input type="tel" id="number" placeholder="e.g. +1 234 567 890">
@@ -95,6 +95,7 @@
         <button id="period-btn">
           <span class="period-text-active">Monthly</span>
           <img class="toggle-left" src="assets/png/toggle_left.png" alt="Toggle pointing left">
+          <img class="toggle-right hidden" src="assets/png/toggle_right.png" alt="Toggle pointing rigth">
           <span class="period-text-inactive">Yearly</span>
         </button>
       </div>
