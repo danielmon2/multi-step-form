@@ -142,10 +142,23 @@ h2, h4 {
     font-size: 1rem;
     display: block;
 }
+    #form-1 input:focus {
+        outline: 1px solid var(--Purple600);
+    }
+
+    #form-1 input:user-invalid {
+        outline: 1px solid var(--Red500);
+    }
 
 #form-1 label {
     display: block;
 }
+
+.invalid-input {
+    color: var(--Red500);
+    font-family: 'Ubuntu Bold', Arial, sans-serif;
+}
+
 /* #endregion */
 
 /* #region Form 2 */
@@ -164,7 +177,7 @@ h2, h4 {
     background-position: 6% center;
 }
     .plan-choice-btn:hover {
-        background-color: var(--Blue100);
+        outline: 1px solid var(--Purple600);
     }
 
     .plan-choice-btn h4, .plan-choice-btn p {
@@ -184,7 +197,8 @@ h2, h4 {
     }
 
     .plan-choice-btn.focus {
-        border: 2px solid var(--Purple600);
+        outline: 1px solid var(--Purple600);
+        background-color: var(--Blue100);
     }
 
     #arcade-plan {
@@ -244,7 +258,7 @@ h2, h4 {
     padding: 10px 0;
 }
     #form-3 .add-on-btn:hover {
-        background-color: var(--Blue100);
+        outline: 1px solid var(--Purple600);
     }
     .checkbox {
         width: 20px;
@@ -261,7 +275,7 @@ h2, h4 {
     .empty { border: 2px solid var(--Purple200); }
 
     #form-3 .add-on-btn.focus {
-        outline: 2px solid var(--Purple600);
+        outline: 1px solid var(--Purple600);
     }
 
     .add-on-btn .add-on-text {
