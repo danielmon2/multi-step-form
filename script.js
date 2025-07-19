@@ -1,6 +1,8 @@
 // Global variebles
 // Element selectors
-const navBtnDiv = document.querySelector('.nav-btn-div');
+
+const navBtnDiv = document.querySelectorAll('.nav-btn-div');
+const form1Inputs = document.querySelectorAll('#form-1 input');
 const periodBtn = document.querySelector('#period-btn');
 const choiceBtnArr = document.querySelectorAll('.plan-choice-btn');
 const addOnBtnArr = document.querySelectorAll('.add-on-btn');
@@ -53,7 +55,7 @@ const services = {
 window.onload = () => {
     if (currentForm === null || currentForm === '1') {
         currentForm = 1;
-        localStorage.setItem('currentForm', 1);
+        localStorage.setItem('currentForm', currentForm);
     }
     loadForm(currentForm, 0);
     window.scroll(0, 0);
@@ -72,11 +74,16 @@ function loadForm(nextFormNumber, currentFormNumber) {
         sidebarCircles[3].querySelector('p').style.color = '#02295a';
     }
 
-    changeNavBtnLayout(nextFormNumber);
     calculateFormHeight(nextFormNumber);
-    if (nextFormNumber === 4) {
+    if (nextFormNumber === 1) {
+        form1Inputs[0].value = localStorage.getItem('fname');
+        form1Inputs[1].value = localStorage.getItem('email');
+        form1Inputs[2].value = localStorage.getItem('phoneNumber');
+    }
+    else if (nextFormNumber === 4) {
         printReceipt();
     }
+
     if (currentFormNumber === 0) {
         return
     }
@@ -89,38 +96,24 @@ function loadForm(nextFormNumber, currentFormNumber) {
     }
 }
 
-function changeNavBtnLayout(currentFormNumber) {
-    const navBtnDiv = document.querySelector('.nav-btn-div');
-    const backBtn = document.querySelector('.back-btn');
-    const nextBtn = document.querySelector('.next-btn');
-
-    navBtnDiv.classList.remove('hidden');
-    if (currentFormNumber === 1) {
-        backBtn.classList.add('hidden');
-        navBtnDiv.style.flexDirection = 'row-reverse';
-    }
-    else if (currentFormNumber === 4) {
-        nextBtn.textContent = 'Confirm';
-    }
-    else if (currentFormNumber === 5) {
-        navBtnDiv.classList.add('hidden');
-    }
-    else {
-        backBtn.classList.remove('hidden');
-        navBtnDiv.removeAttribute('style');
-        nextBtn.textContent = 'Next step';
-    }
+function validateInput(input) {
+    const labels = document.querySelectorAll('#form-1 label');
+    labels.forEach(el => {
+        if (el.getAttribute('for') === input.id) {
+            el.querySelector('.invalid-input').classList.remove('hidden');
+        }
+    })
 }
 
 // If form is covered add scrolling
 function calculateFormHeight(currentForm) {
-    const flexItem2 = document.querySelector('#main-container > div:not(#sidebar)');
     if (window.innerWidth < 700) {
         const form = document.querySelector(`#form-${currentForm}`);
-        flexItem2.style.height = `${(form.offsetHeight - 105) + 90}px`;
+        const formContainer = document.querySelector(`#${form.id} .form-container`);
+        form.style.height = `${formContainer.offsetHeight - 15}px`;
     }
     else {
-        flexItem2.removeAttribute('style');
+        document.querySelector(`#form-${currentForm}`).removeAttribute('style');
     }
 }
 
@@ -287,17 +280,35 @@ window.addEventListener('resize', () => {
 });
 
 // Nav bar
-navBtnDiv.addEventListener('click', e => {
-    if (e.target.classList.contains('back-btn')) {
-        loadForm(currentForm - 1, currentForm)
-        currentForm--;
-        localStorage.setItem('currentForm', currentForm);
-    }
-    else if (e.target.classList.contains('next-btn')) {
-        loadForm(currentForm + 1, currentForm)
-        currentForm++;
-        localStorage.setItem('currentForm', currentForm);
-    }
+navBtnDiv.forEach(el => {
+    el.addEventListener('click', e => {
+        if (e.target.classList.contains('back-btn')) {
+            loadForm(currentForm - 1, currentForm)
+            currentForm--;
+            localStorage.setItem('currentForm', currentForm);
+        }
+        else if (e.target.classList.contains('next-btn')) {
+            form1Errors = 0;
+            document.querySelectorAll('#form-1 .invalid-input').forEach(el => {
+                el.classList.add('hidden');
+            })
+            if (document.querySelector(`#form-${currentForm}`).reportValidity()) {
+                loadForm(currentForm + 1, currentForm)
+                currentForm++;
+                localStorage.setItem('currentForm', currentForm);
+            }
+            else {
+
+            }
+        }
+    })
+})
+
+// Form 1 inputs
+form1Inputs.forEach((el, index) => {
+    el.addEventListener("invalid", (e) => {
+        validateInput(el);
+    })
 })
 
 // Form 2 buttons
