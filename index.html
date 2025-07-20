@@ -52,27 +52,27 @@
         </div>
       </div>
     </div>
-    <div>
-      <form id="form-1">
+    <form>
+      <div id="form-1" class="hidden">
         <div class="form-container">
           <h2>Personal info</h2>
           <p>Please provide your name, email address, and phone number.</p>
 
-          <label for="name">Name <span class="invalid-input hidden">This field is required</span></label>
+          <label for="name"><span>Name</span> <span class="invalid-input hidden">This field is required</span></label>
           <input type="text" id="name" placeholder="e.g. Stephen King" required>
 
-          <label for="email">Email Address <span class="invalid-input hidden">This field is required</span></label>
+          <label for="email"><span>Email Address</span> <span class="invalid-input hidden">This field is required</span></label>
           <input type="email" id="email" placeholder="e.g. stephenking@lorem.com" required>
 
-          <label for="number">Phone Number <span class="invalid-input hidden">This field is required</span></label>
+          <label for="number"><span>Phone Number</span> <span class="invalid-input hidden">This field is required</span></label>
           <input type="tel" id="number" placeholder="e.g. +1 234 567 890" required>
         </div>
         <div class="nav-btn-div">
-          <button class="next-btn">Next step</button>
+          <button type="button" class="next-btn">Next step</button>
         </div>
-      </form>
+      </div>
 
-      <form id="form-2" class="hidden">
+      <div id="form-2" class="hidden">
         <div class="form-container">
           <h2>Select your plan</h2>
           <p>You have the option of monthly or yearly billing.</p>
@@ -106,11 +106,11 @@
         </div>
         <div class="nav-btn-div">
           <button type="button" class="back-btn">Go back</button>
-          <button class="next-btn">Next step</button>
+          <button type="button" class="next-btn">Next step</button>
         </div>
-      </form>
+      </div>
 
-      <form id="form-3" class="hidden">
+      <div id="form-3" class="hidden">
         <div class="form-container">
           <h2>Pick add-ons</h2>
           <p>Add-ons help enhance your gaming experience.</p>
@@ -144,11 +144,11 @@
         </div>
         <div class="nav-btn-div">
           <button type="button" class="back-btn">Go back</button>
-          <button class="next-btn">Next step</button>
+          <button type="button" class="next-btn">Next step</button>
         </div>
-      </form>
+      </div>
 
-      <form id="form-4" class="hidden">
+      <div id="form-4" class="hidden">
         <div class="form-container">
           <h2>Finishing up</h2>
           <p>Double-check everything looks OK before confirming.</p>
@@ -174,7 +174,7 @@
           <button type="button" class="back-btn">Go back</button>
           <button class="next-btn">Confirm</button>
         </div>
-      </form>
+      </div>
 
       <div id="form-5" class="hidden form-container">
         <img src="assets/images/icon-thank-you.svg" alt="White checkmark on a pink circle">
@@ -183,11 +183,10 @@
           Thanks for confirming your subscription! We hope you have fun
           using our platform. If you ever need support, please feel free
           to email us at support@loremgaming.com.
-          <button id="home-btn">Home</button>
+          <button type="button" id="home-btn">Home</button>
         </p>
       </div>
-
-    </div>
+    </form>
   </div>
   <!-- <div class="attribution">
     <a href="https://www.flaticon.com/free-icons/turn-on" title="turn on icons">Turn on icons created by heisenberg_jr - Flaticon</a>
