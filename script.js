@@ -1,6 +1,5 @@
 // Global variebles
 // Element selectors
-
 const navBtnDiv = document.querySelectorAll('.nav-btn-div');
 const form1Inputs = document.querySelectorAll('#form-1 input');
 const periodBtn = document.querySelector('#period-btn');
@@ -11,6 +10,11 @@ const homeBtn = document.querySelector('#home-btn');
 // Program variable
 let currentForm = +localStorage.getItem('currentForm');
 let currentPlan = 0;
+
+// #region User data
+let fname = "";
+let email = "";
+let phoneNumber = "";
 // use clicks and not css classes to determine whether the button is on or off
 const addOns = {
     current: [0, 0, 0],
@@ -50,6 +54,7 @@ const services = {
         }
     }
 }
+// #endregion
 
 // Main program
 window.onload = () => {
@@ -75,12 +80,13 @@ function loadForm(nextFormNumber, currentFormNumber) {
     }
 
     calculateFormHeight(nextFormNumber);
-    if (nextFormNumber === 1) {
-        form1Inputs[0].value = localStorage.getItem('fname');
-        form1Inputs[1].value = localStorage.getItem('email');
-        form1Inputs[2].value = localStorage.getItem('phoneNumber');
+    if (currentFormNumber === 1) {
+        fname = form1Inputs[0].value;
+        email = form1Inputs[1].value;
+        phoneNumber = form1Inputs[2].value;
     }
-    else if (nextFormNumber === 4) {
+    
+    if (nextFormNumber === 4) {
         printReceipt();
     }
 
@@ -139,7 +145,7 @@ function printReceipt() {
     let i = 0;
     addOns.current.forEach((el, index) => {
         if (el === 1) {
-            createReceiptItem(currentAddOns[index][0], currentAddOns[index][1][monthOrYear] )
+            createReceiptItem(currentAddOns[index][0], currentAddOns[index][1][monthOrYear])
             i++;
         }
     })
@@ -292,13 +298,10 @@ navBtnDiv.forEach(el => {
             document.querySelectorAll('#form-1 .invalid-input').forEach(el => {
                 el.classList.add('hidden');
             })
-            if (document.querySelector(`#form-${currentForm}`).reportValidity()) {
+            if (document.querySelector('#main-container > form').reportValidity()) {
                 loadForm(currentForm + 1, currentForm)
                 currentForm++;
                 localStorage.setItem('currentForm', currentForm);
-            }
-            else {
-
             }
         }
     })
