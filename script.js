@@ -58,7 +58,7 @@ const services = {
 
 // Main program
 window.onload = () => {
-    if (currentForm === null || currentForm === '1') {
+    if (currentForm === null) {
         currentForm = 1;
         localStorage.setItem('currentForm', currentForm);
     }
@@ -85,15 +85,12 @@ function loadForm(nextFormNumber, currentFormNumber) {
         email = form1Inputs[1].value;
         phoneNumber = form1Inputs[2].value;
     }
-    
+
     if (nextFormNumber === 4) {
         printReceipt();
     }
 
-    if (currentFormNumber === 0) {
-        return
-    }
-    else {
+    if (currentFormNumber !== 0) {
         document.querySelector(`#form-${currentFormNumber}`).classList.add('hidden');
         if (nextFormNumber !== 5 && currentFormNumber !== 5) {
             sidebarCircles[currentFormNumber - 1].removeAttribute('style');
@@ -113,10 +110,14 @@ function validateInput(input) {
 
 // If form is covered add scrolling
 function calculateFormHeight(currentForm) {
-    if (window.innerWidth < 700) {
+    if (window.innerWidth < 700 && currentForm !== 5) {
         const form = document.querySelector(`#form-${currentForm}`);
         const formContainer = document.querySelector(`#${form.id} .form-container`);
         form.style.height = `${formContainer.offsetHeight - 15}px`;
+    }
+    else if (currentForm === 5) {
+        const form = document.querySelector(`#form-${currentForm}`);
+        form.style.height = `${form.offsetHeight - 15}px`;
     }
     else {
         document.querySelector(`#form-${currentForm}`).removeAttribute('style');
@@ -299,7 +300,10 @@ navBtnDiv.forEach(el => {
                 el.classList.add('hidden');
             })
             if (document.querySelector('#main-container > form').reportValidity()) {
-                loadForm(currentForm + 1, currentForm)
+                // Use window onload event listener to load form 5 only when the whole page laods
+                if (currentForm !== 4) {
+                    loadForm(currentForm + 1, currentForm);
+                }
                 currentForm++;
                 localStorage.setItem('currentForm', currentForm);
             }
