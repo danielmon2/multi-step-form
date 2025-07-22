@@ -150,14 +150,15 @@ h2, h4 {
         outline: 1px solid var(--Red500);
     }
 
+    #form-1 label:has(+ input:placeholder-shown:user-invalid)::after {
+        content: "This field is required";
+        color: var(--Red500);
+        font-family: 'Ubuntu Bold', Arial, sans-serif;
+    }
+
 #form-1 label {
     display: flex;
     justify-content: space-between;
-}
-
-#form-1 .invalid-input {
-    color: var(--Red500);
-    font-family: 'Ubuntu Bold', Arial, sans-serif;
 }
 
 /* #endregion */

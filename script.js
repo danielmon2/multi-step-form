@@ -99,15 +99,6 @@ function loadForm(nextFormNumber, currentFormNumber) {
     }
 }
 
-function validateInput(input) {
-    const labels = document.querySelectorAll('#form-1 label');
-    labels.forEach(el => {
-        if (el.getAttribute('for') === input.id) {
-            el.querySelector('.invalid-input').classList.remove('hidden');
-        }
-    })
-}
-
 // If form is covered add scrolling
 function calculateFormHeight(currentForm) {
     if (window.innerWidth < 700 && currentForm !== 5) {
@@ -308,13 +299,6 @@ navBtnDiv.forEach(el => {
                 localStorage.setItem('currentForm', currentForm);
             }
         }
-    })
-})
-
-// Form 1 inputs
-form1Inputs.forEach((el, index) => {
-    el.addEventListener("invalid", (e) => {
-        validateInput(el);
     })
 })
 
