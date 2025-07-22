@@ -52,7 +52,7 @@
         </div>
       </div>
     </div>
-    <form>
+    <form action="#" onsubmit=" loadForm( 5, 4 ) ">
       <div id="form-1" class="hidden">
         <div class="form-container">
           <h2>Personal info</h2>
@@ -65,7 +65,7 @@
           <input type="email" id="email" placeholder="e.g. stephenking@lorem.com" required>
 
           <label for="number">Phone Number</label>
-          <input type="tel" id="number" placeholder="e.g. +1 234 567 890" required>
+          <input type="tel" id="number" placeholder="e.g. +1 234 567 890" pattern="[\d\W]*" required>
         </div>
         <div class="nav-btn-div">
           <button type="button" class="next-btn">Next step</button>

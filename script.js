@@ -8,7 +8,9 @@ const addOnBtnArr = document.querySelectorAll('.add-on-btn');
 const changePlanBtn = document.querySelector('#change-plan-btn');
 const homeBtn = document.querySelector('#home-btn');
 // Program variable
-let currentForm = +localStorage.getItem('currentForm');
+// let currentForm = +localStorage.getItem('currentForm');
+localStorage.setItem('lastPage', 5);
+let currentForm = 1;
 let currentPlan = 0;
 
 // #region User data
@@ -60,7 +62,7 @@ const services = {
 window.onload = () => {
     if (currentForm === null) {
         currentForm = 1;
-        localStorage.setItem('currentForm', currentForm);
+        // localStorage.setItem('currentForm', currentForm);
     }
     loadForm(currentForm, 0);
     window.scroll(0, 0);
@@ -283,7 +285,7 @@ navBtnDiv.forEach(el => {
         if (e.target.classList.contains('back-btn')) {
             loadForm(currentForm - 1, currentForm)
             currentForm--;
-            localStorage.setItem('currentForm', currentForm);
+            // localStorage.setItem('currentForm', currentForm);
         }
         else if (e.target.classList.contains('next-btn')) {
             form1Errors = 0;
@@ -296,7 +298,7 @@ navBtnDiv.forEach(el => {
                     loadForm(currentForm + 1, currentForm);
                 }
                 currentForm++;
-                localStorage.setItem('currentForm', currentForm);
+                // localStorage.setItem('currentForm', currentForm);
             }
         }
     })
@@ -330,12 +332,12 @@ addOnBtnArr.forEach((el, index) => {
 changePlanBtn.addEventListener('click', () => {
     loadForm(2, 4);
     currentForm = 2;
-    localStorage.setItem('currentForm', currentForm);
+    // localStorage.setItem('currentForm', currentForm);
 })
 
 homeBtn.addEventListener('click', () => {
     loadForm(4, 5);
     currentForm = 4;
-    localStorage.setItem('currentForm', currentForm);
+        // localStorage.setItem('currentForm', currentForm);
 })
 // #endregion
